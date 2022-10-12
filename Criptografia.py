@@ -44,7 +44,7 @@ while True:
                     textoFinal = ' '
             for c in tqdm(range(10)):
                 sleep(1)
-            print(f'Frase final: {textoFinal} + {textoFinal2}')
+            print(f'Frase final: {textoFinal2}')
             esc = str(input('Deseja continuar? [S/N] ')).upper().strip()
             if esc == "N":
                 break
