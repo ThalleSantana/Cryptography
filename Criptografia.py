@@ -1,6 +1,19 @@
 from tqdm import tqdm
 from time import sleep
 letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+rot = 3
+def cripCesar(textoFinal):
+    m = ''
+    for c in textoFinal:
+        c_index = letras.index(c)
+        m += letras[(c_index + rot) % len(letras)]
+    return m
+def descripCesar(textoFinal):
+    m = ''
+    for c in textoFinal:
+        c_index = letras.index(c)
+        m += letras[(c_index - rot) % len(letras)]
+    return m
 while True:
     textoFinal = ""
     op = input('Deseja Criptografar ou Descriptografar? [C/D] ').upper().strip()
@@ -23,13 +36,15 @@ while True:
                     posicao_letra_chave = int(letras.index(chaveFinal[i]))
                     if op == "C":
                         textoFinal += str(letras[(posicao_letra_frase + posicao_letra_chave) % len(letras)])
+                        textoFinal2 = cripCesar(textoFinal)
                     else:
                         textoFinal += str(letras[(posicao_letra_frase - posicao_letra_chave) % len(letras)])
+                        textoFinal2 = descripCesar(textoFinal)
                 else:
                     textoFinal = ' '
             for c in tqdm(range(10)):
                 sleep(1)
-            print(f'Frase final: {textoFinal}')
+            print(f'Frase final: {textoFinal} + {textoFinal2}')
             esc = str(input('Deseja continuar? [S/N] ')).upper().strip()
             if esc == "N":
                 break
