@@ -43,7 +43,7 @@ while True:
                 if i == len(chave):
                     i = 0
             textoFinal = cesar(texto, op)
-            textoFinal2 = vigenere(texto, chaveFinal, op)
+            textoFinal2 = vigenere(textoFinal, chaveFinal, op)
             for c in tqdm(range(10)):
                 sleep(0.3)
             print(f'Frase final: {textoFinal2}')
